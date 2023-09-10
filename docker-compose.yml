@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  
+  db:
+    image: mysql:8.1.0
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: YES
+      MYSQL_DATABASE: PI
+    ports:
+      - 3304:3306
+    expose:
+      - '3306'
+    networks:
+      - twelve_network
+
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile 
+    restart: always
+    container_name: api_app
+    ports:
+      - 3001:3001 
+    depends_on:
+      - db 
+    networks:
+      - twelve_network
+      
+      
+networks:
+  twelve_network:
