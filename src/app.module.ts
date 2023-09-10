@@ -18,10 +18,10 @@ import { courtModule } from './court/court.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'db',
       port: 3306,
-      username: 'lobatoSQL',
-      password: '1234',
+      username: 'root',
+      password: '',
       database: 'PI',
       entities: [
         UserEntity,
@@ -31,7 +31,7 @@ import { courtModule } from './court/court.module';
         SportEntity,
         CourtEntity,
       ],
-      synchronize: true,
+      synchronize: false,
     }),
     userModule,
     adminModule,
