@@ -18,6 +18,9 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile 
+    volumes:
+      - .:/home/TwelveAPI
+      - /home/TwelveAPI/node_modules
     restart: always
     container_name: api_app
     ports:
