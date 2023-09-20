@@ -33,6 +33,9 @@ export class CourtService {
   }
 
   async findAll() {
-    return await this.courtRepository.find();
+    return await this.courtRepository
+      .createQueryBuilder('court')
+      .leftJoinAndSelect('court.sports', 'sports')
+      .getMany();
   }
 }
