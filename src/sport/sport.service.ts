@@ -10,12 +10,11 @@ export class SportService {
          @InjectRepository(SportEntity)
          private sportRepository: Repository<SportEntity>,
     ) { }
-    getHello(): string {
-        return 'Hello World!';
-    }
    
     create(createSportDto: CreateSportDto) {
         const sport = this.sportRepository.create(createSportDto);
         return this.sportRepository.save(sport);
     }
+
+    
 }
