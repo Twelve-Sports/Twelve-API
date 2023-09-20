@@ -1,35 +1,12 @@
-version: '3.1'
+version: '3'
 services:
-  
-  db:
-    image: mysql:8.1.0
-    restart: always
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: YES
-      MYSQL_DATABASE: PI
-    ports:
-      - 3304:3306
-    expose:
-      - '3306'
-    networks:
-      - twelve_network
 
-  api:
-    build:
-      context: ./
-      dockerfile: Dockerfile 
-    volumes:
-      - .:/home/TwelveAPI
-      - /home/TwelveAPI/node_modules
-    restart: always
-    container_name: api_app
+  postgres:
+    image: "postgres:14.5"
     ports:
-      - 3001:3001 
-    depends_on:
-      - db 
-    networks:
-      - twelve_network
-      
-      
-networks:
-  twelve_network:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+      POSTGRES_DB: "test"
+

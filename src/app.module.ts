@@ -9,20 +9,21 @@ import { AdminEntity } from './admin/admin.entity';
 import { adminModule } from './admin/admin.module';
 import { reserveModule } from './reserve/reverve.module';
 import { ReserveEntity } from './reserve/reserve.entity';
-import { sportModule } from './sport/sport.module';
+import { SportModule } from './sport/sport.module';
 import { SportEntity } from './sport/sport.entity';
 import { CourtEntity } from './court/court.entity';
 import { courtModule } from './court/court.module';
+import { clientModule } from './client/client.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'db',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'PI',
+      type: "postgres",
+      host: "localhost",
+      port: 5432,
+      username: "test",
+      password: "test",
+      database: "postgres",
       entities: [
         UserEntity,
         ClientEntity,
@@ -31,13 +32,14 @@ import { courtModule } from './court/court.module';
         SportEntity,
         CourtEntity,
       ],
-      synchronize: false,
+      synchronize: true,
     }),
     userModule,
     adminModule,
     reserveModule,
-    sportModule,
+    SportModule,
     courtModule,
+    clientModule
   ],
   controllers: [AppController],
   providers: [AppService],
