@@ -1,38 +1,73 @@
-# API de Lista de Animes
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-Este é um projeto de API de Lista de Animes desenvolvido com NestJS e TypeORM.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-## Objetivos do Projeto
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-O projeto tem como objetivo atender aos seguintes critérios:
+## Description
 
-- Desenvolver 2 CRUDs diferentes.
-- Implementar um sistema de autenticação com criação de sessão.
-- Aplicar validações utilizando DTO.
-- Acesso a um banco de dados utilizando ORM.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Funcionalidades
+## Installation
 
-1. **CRUD de Animes**
-   - Criação, leitura, atualização e exclusão de informações sobre animes.
+```bash
+$ npm install
+```
 
-2. **CRUD de Usuários**
-   - Criação, leitura, atualização e exclusão de informações dos usuários.
+## Running the app
 
-3. **Autenticação e Sessão**
-   - Implementação de autenticação de usuários e criação de sessão.
+```bash
+# development
+$ npm run start
 
-## Outros Recursos
+# watch mode
+$ npm run start:dev
 
-Além dos requisitos obrigatórios, alguns recursos adicionais podem ser incluídos:
+# production mode
+$ npm run start:prod
+```
 
-- Upload de arquivos.
-- Envio de e-mails.
-- Testes.
-- Medidas de segurança.
+## Test
 
-## Stack de Tecnologias
+```bash
+# unit tests
+$ npm run test
 
-A stack de tecnologias utilizada no projeto pode seguir a de alguma empresa referência ou ser baseada em outras disciplinas.
+# e2e tests
+$ npm run test:e2e
 
+# test coverage
+$ npm run test:cov
+```
 
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](LICENSE).
