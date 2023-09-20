@@ -1,11 +1,10 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { CourtService } from './court.service';
 import { CreateCourtDto } from './dto/court-create.dto';
 
 @Controller('court')
 export class CourtController {
-  constructor(private readonly courtService: CourtService
-    ) {}
+  constructor(private readonly courtService: CourtService) {}
 
   @Get()
   findAllCourt() {
@@ -17,6 +16,11 @@ export class CourtController {
     const sportIds = createCourtDto.sportIds;
     return await this.courtService.createCourt(createCourtDto, sportIds);
   }
-  
+
+  @Get('sport/:id')
+  findCourtBySportId(@Param('id') sportId: number) {
+    return this.courtService.findCourtBySportId(sportId);
   }
+}
+  
 
