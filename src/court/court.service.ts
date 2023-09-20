@@ -1,6 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CourtEntity } from './court.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateCourtDto } from './dto/court-create.dto';
 import { SportEntity } from 'src/sport/sport.entity';
@@ -15,25 +15,21 @@ export class CourtService {
   ) {}
 
 
-  async create(createCourtDto: CreateCourtDto) {
+  async createCourt(createCourtDto: CreateCourtDto, sportIds: number[]) {
+    const existingSports = await this.sportRepository.find({
+      where: { id: In(sportIds) },
+    });
+
+    if (existingSports.length !== sportIds.length) {
+      throw new NotFoundException('Alguns dos esportes não existem.');
+    }
+
     const court = this.courtRepository.create(createCourtDto);
-    console.log(court);
-    
-    const sports = [];
+    court.sports = existingSports;
 
-    await Promise.all(
-      createCourtDto.sportIds.map(async sport => {
-        const sportEntity = await this.sportRepository.findOne({where: {id: sport}});
-        sports.push(sportEntity);
-      }),
-    );
-    court.sports = sports;
-    console.log(sports);
-    
     console.log(court);
+
     return this.courtRepository.save(court);
-
-
   }
 
   async findAll() {

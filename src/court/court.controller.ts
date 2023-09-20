@@ -13,10 +13,10 @@ export class CourtController {
   }
 
   @Post()
-  async create(@Body() createCourtDto: CreateCourtDto) {
-    return await this.courtService.create(createCourtDto);
+  async createCourt(@Body() createCourtDto: CreateCourtDto) {
+    const sportIds = createCourtDto.sportIds;
+    return await this.courtService.createCourt(createCourtDto, sportIds);
   }
-
   
   }
 
