@@ -22,9 +22,6 @@ export class ReserveEntity {
   endDate: Date;
 
   @Column()
-  password: string;
-
-  @Column()
   sportSelect: string;
 
   @ManyToOne(() => ClientEntity, (client) => client.id)
