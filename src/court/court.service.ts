@@ -38,4 +38,26 @@ export class CourtService {
       .leftJoinAndSelect('court.sports', 'sports')
       .getMany();
   }
+
+  async findCourtBySportId(sportId: number) {
+    const courts = await this.courtRepository
+      .createQueryBuilder('court')
+      .leftJoinAndSelect('court.sports', 'sports')
+      .where('sports.id = :sportId', { sportId })
+      .getMany();
+  
+    const courtsWithAllSports = await Promise.all(
+      courts.map(async (court) => {
+        const courtWithAllSports = await this.courtRepository
+          .createQueryBuilder('c')
+          .leftJoinAndSelect('c.sports', 's')
+          .where('c.id = :courtId', { courtId: court.id })
+          .getOne();
+  
+        return courtWithAllSports;
+      }),
+    );
+  
+    return courtsWithAllSports;
+  }
 }
