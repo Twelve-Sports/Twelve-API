@@ -1,21 +1,21 @@
-import { IsDate, IsString } from "class-validator";
+import { IsDate, IsNumber, IsString } from "class-validator";
 
 
 export class CreateReserveDto {
 
-    @IsDate()
-    startDate: Date;
-
-    @IsDate()
-    endDate: Date;
+    @IsString()
+    startDate: string;
 
     @IsString()
-    sportSelect: string;
+    endDate: string;
 
-    @IsString()
-    client: string;
+    @IsNumber()
+    sportSelect: number;
 
-    @IsString()
-    court: string;
+    @IsNumber()
+    clientId: number;
+
+    @IsNumber()
+    courtId: number;
 
 }
