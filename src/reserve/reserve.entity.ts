@@ -4,9 +4,7 @@ import { SportEntity } from 'src/sport/sport.entity';
 import {
   Column,
   Entity,
-  JoinColumn,
   ManyToOne,
-  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -21,13 +19,12 @@ export class ReserveEntity {
   @Column()
   endDate: Date;
 
-  @Column()
-  sportSelect: string;
+  @ManyToOne(() => SportEntity, (sport) => sport.id)
+  sportSelect: SportEntity;
 
   @ManyToOne(() => ClientEntity, (client) => client.id)
   client: ClientEntity;
 
-  @OneToOne(() => CourtEntity)
-  @JoinColumn({ name: 'court_id' })
+  @ManyToOne(() => CourtEntity, (court) => court.id)
   court: CourtEntity;
 }
